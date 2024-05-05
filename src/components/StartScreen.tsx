@@ -1,7 +1,9 @@
 import { FC } from "react";
-import { Action } from "./App";
+import { useQuiz } from "../contexts/QuizContext";
 
-export const StartScreen: FC<{numQuestions: number, dispatch: React.Dispatch<Action>}> = ({numQuestions, dispatch}) => {
+export const StartScreen: FC = () => {
+  const {numQuestions, dispatch} = useQuiz();
+
   return (
     <div className="start">
       <h2>Welcome to the React Quiz!</h2>

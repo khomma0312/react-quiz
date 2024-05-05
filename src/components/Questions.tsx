@@ -1,12 +1,15 @@
 import { FC } from "react";
-import { Action, QuestionType } from "./App";
 import { Options } from "./Options";
+import { useQuiz } from "../contexts/QuizContext";
 
-export const Question: FC<{question: QuestionType, dispatch: React.Dispatch<Action>, answer: number | null}> = ({ question, dispatch, answer }) => {
+export const Question: FC = () => {
+  const { questions, index } = useQuiz();
+  const question = questions[index];
+
   return (
     <div>
       <h4>{question.question}</h4>
-      <Options question={question} dispatch={dispatch} answer={answer} />
+      <Options question={question} />
     </div>
   )
 };
