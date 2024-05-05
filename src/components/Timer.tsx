@@ -1,12 +1,9 @@
 import { FC, useEffect } from "react";
-import { Action } from "./App";
+import { useQuiz } from "../contexts/QuizContext";
 
-type TimerState = {
-  dispatch: React.Dispatch<Action>;
-  secondsRemaining: number;
-};
+export const Timer: FC = () => {
+  const {secondsRemaining, dispatch} = useQuiz();
 
-export const Timer: FC<TimerState> = ({dispatch, secondsRemaining}) => {
   const mins = Math.floor(secondsRemaining / 60);
   const secs = secondsRemaining % 60;
 
